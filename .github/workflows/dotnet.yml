@@ -15,9 +15,9 @@ jobs:
       with:
         fetch-depth: 0
     - name: Setup .NET Core
-      uses: actions/setup-dotnet@v1
+      uses: actions/setup-dotnet@v2
       with:
-        dotnet-version: 3.1.301
+        dotnet-version: 6.0.x
     - name: Install GitVersion
       uses: gittools/actions/gitversion/setup@v0.9.6
       with:
@@ -83,13 +83,13 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Download Artifact
-        uses: actions/download-artifact@v1
+        uses: actions/download-artifact@v3.0.0
         with:
           name: nupkg
       - name: Setup .NET Core
-        uses: actions/setup-dotnet@v1
+        uses: actions/setup-dotnet@v2
         with:
-          dotnet-version: 3.1.301
+          dotnet-version: 6.0.x
       - name: add package source
         run: dotnet nuget add source https://nuget.pkg.github.com/alex100915/index.json -n github -u alex100915 -p ${{secrets.NUGETAPIKEY}} --store-password-in-clear-text
       - name: publish
