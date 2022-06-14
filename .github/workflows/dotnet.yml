@@ -90,6 +90,6 @@ jobs:
         with:
           dotnet-version: 3.1.301
       - name: add package source
-        run: dotnet nuget add source https://nuget.pkg.github.com/alex100915/index.json -n github -u alex100915 -p ${{secrets.NUGETAPIKEY}} --store-password-in-clear-text
+        run: dotnet nuget add source https://nuget.pkg.github.com/githubtests1233/index.json -n github -u alex100915 -p ${{secrets.NUGETAPIKEY}} --store-password-in-clear-text
       - name: publish
         run: dotnet nuget push ./nupkg/**.nupkg --api-key ${{secrets.NUGETAPIKEY}} --source "github" 
